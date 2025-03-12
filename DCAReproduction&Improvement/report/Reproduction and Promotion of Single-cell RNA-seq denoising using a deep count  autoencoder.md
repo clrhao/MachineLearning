@@ -245,13 +245,13 @@ Gradient explosion occurred in the later stage of training.
 
 1000 epochs:
 
-<img src="/Users/haoxin/Library/Application Support/typora-user-images/image-20250308230839610.png" alt="image-20250308230839610" style="zoom:50%;" />
+<img src="/Users/haoxin/Library/Application Support/typora-user-images/image-20250312233017458.png" alt="image-20250312233017458" style="zoom: 25%;" />
 
 Use Euclidean distance to represent the difference of predict value and real value of data. The difference is tremendous, and it is clearly underfitting.
 
 2000 epochs:
 
-<img src="/Users/haoxin/Library/Application Support/typora-user-images/image-20250309095849896.png" alt="image-20250309095849896" style="zoom:50%;" />
+<img src="/Users/haoxin/Library/Application Support/typora-user-images/image-20250312233520468.png" alt="image-20250312233520468" style="zoom: 25%;" />
 
 Still underfitting.
 
@@ -340,7 +340,7 @@ class LZINBLoss(nn.Module):
         self.eps = eps
 
     def forward(self, X: Tensor, PI: Tensor = None, M: Tensor = None, THETA: Tensor = None):
-        # 防止出现除0，log(0) log (负数) 等等等
+        # in case of log(0) log (neg num) 
         eps = self.eps
         # deal with inf
         max1 = max(THETA.max(), M.max())
