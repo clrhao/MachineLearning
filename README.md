@@ -1,1 +1,2 @@
 # MachineLearning
+This project concludes some experiments about machine learning and deep learning in English version. It includes some basic algorithms and methods, such as linear regression, decision trees, and convolutional neural networks. It also presents an attempt to improve a model mentioned in this paper: https://www.nature.com/articles/s41467-018-07931-2, by implementing Batch Normalization and improving the loss function.
