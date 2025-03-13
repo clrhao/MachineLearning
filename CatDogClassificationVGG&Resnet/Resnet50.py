@@ -82,5 +82,5 @@ class Resnet(nn.Module):  # 主层
         output = self.out(x)
         return output
 
-# 创建模型并移动到MPS设备
+# 创建模型并移动到MPS
 net = Resnet(convolutional_block, identity_block).to('mps')

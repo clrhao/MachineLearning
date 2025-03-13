@@ -13,7 +13,7 @@ class LZINBLoss(nn.Module):
         self.eps = eps
 
     def forward(self, X: Tensor, PI: Tensor = None, M: Tensor = None, THETA: Tensor = None):
-        # 防止出现除0，log(0) log (负数) 等等等
+        # 防止出现除0，log(0) log (负数)
         eps = self.eps
         # deal with inf
         max1 = max(THETA.max(), M.max())
@@ -52,7 +52,7 @@ class LZINBLoss(nn.Module):
         # #final版本
         eps = torch.tensor(1e-10)
         # 事实上u即为y_pred，即补差的值
-        # 注意是负对数，因此我们可以将乘法和除法变为加减法，
+        # 注意是负对数，因此可以将乘法和除法变为加减法，
         THETA = torch.minimum(THETA, torch.tensor(1e6))
         t1 = torch.lgamma(THETA + eps) + torch.lgamma(X + 1.0) - torch.lgamma(X + THETA + eps)
         t2 = (THETA + X) * torch.log(1.0 + (M / (THETA + eps))) + (X * (torch.log(THETA + eps) - torch.log(M + eps)))
@@ -69,12 +69,6 @@ class LZINBLoss(nn.Module):
 
 class AutoEncoder(nn.Module):
     def __init__(self, input_size=None, hasBN=False):
-        """
-        该autoencoder还可以改进：
-        dropout层
-
-        :param input_size:
-        """
         super().__init__()
         self.intput_size = input_size
         self.hasBN=hasBN
@@ -108,11 +102,6 @@ class AutoEncoder(nn.Module):
 
 
 def preprocess_data(data: Tensor):
-    """
-    预处理数据 按照X-bar公式 zscore处理
-    :param data:
-    :return: 处理得到的数据
-    """
     s = torch.sum(data,dim=1)
     median = torch.median(s)
     s = s/median

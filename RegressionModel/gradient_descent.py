@@ -47,10 +47,10 @@ def gradient_descent(x_train, y_train, x_test, y_test, learning_rate):
     for index in range(1000):
         # notion
         gradients = x_train.T.dot(x_train.dot(theta) - y_train) / len(x_train)
-        # 初始化模型参数theta，其维度与每个训练样本的特征数量相同。这里的theta是线性回归模型的权重向量
+        # 初始化模型参数theta, theta是回归模型的权重向量
         theta = theta - learning_rate * gradients
-        # 使用的是均方误差损失函数的梯度，计算公式基于线性回归模型的参数更新规则
-        MSE = ((np.dot(x_test, theta) - y_test) ** 2).sum() / len(x_test) # 多元线性回归的损失函数
+        # 使用均方误差损失函数的梯度，计算公式基于线性回归模型的参数更新规则
+        MSE = ((np.dot(x_test, theta) - y_test) ** 2).sum() / len(x_test)
         loss.append(MSE)
     return theta, loss
 

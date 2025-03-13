@@ -57,11 +57,11 @@ def KNN(inX, train, train_result, k):
             temp = np.asarray(temp)
         result.append(temp.argsort()[-1])
     return result
-#利用自己编写的KNN算法对手写数字进行分类
+#自己编写的KNN算法分类
 result1 = KNN(test, train, train_result, 1)
 result3 = KNN(test, train, train_result, 3)
 result5 = KNN(test, train, train_result, 5)
-#求相似度
+#相似度
 def simrate(ls1, ls2):
     num = 0
     l = len(ls1)
@@ -72,7 +72,7 @@ def simrate(ls1, ls2):
 print("k = 1时的准确率是：", simrate(result1, test_right))    
 print("k = 3时的准确率是：", simrate(result3, test_right))
 print("k = 5时的准确率是：", simrate(result5, test_right))
-#与sklearn库中做对比
+#与sklearn库对比
 from sklearn.neighbors import KNeighborsClassifier
 knn1 = KNeighborsClassifier(1)
 knn1.fit(train, train_result)

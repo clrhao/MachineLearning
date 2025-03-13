@@ -27,10 +27,6 @@ FILE_NAME = 'data.csv'
 
 f = open('diary.txt','w')
 def train(EPOCH_NUM=100, print_batchloss=False, autoencoder=None, loader=None, startEpoch=0,ever_saving = EVER_SAVING):
-    """
-
-    :param print_batchloss: 是否打印batch训练信息，默认为 False 否
-    """
     lzinbloss = LZINBLoss(eps=EPS)
     opt = Adam(autoencoder.parameters(), lr=LR, betas=(BETA1, BETA2), eps=EPS, weight_decay=WEIGHT_DECAY)
     # opt = SGD(autoencoder.parameters(), lr=1e-2, momentum=0.8)
