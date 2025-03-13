@@ -124,3 +124,17 @@ def KNN(inX, train, train_result, k):
    print("sklearn中k = 5 similarity：", simrate(resultsk5, test_right))
 ```
 
+<img src="https://i-blog.csdnimg.cn/direct/b3679eb6158b4ee39fd57de4bbdc3090.png" alt="img" style="zoom:50%;" />
+
+It can be seen that: 
+
+When k = 1, the accuracy of the model from sklearn library and built from scratch are close.
+
+When k = 3, the accuracy of the model from sklearn library is slightly higher than the model built from scratch.
+
+When k = 5, the accuracy of the model from sklearn library is slightly higher than the model built from scratch.
+
+Conclusion:
+
+1. The accuracy of knn is slightly lower than the accuracy of the model from sklearn library.
+2. The accuracy of both models drops slightly as k increases.

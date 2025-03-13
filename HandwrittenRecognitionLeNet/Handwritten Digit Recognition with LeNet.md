@@ -24,7 +24,7 @@ import torch.nn.functional as F
 from torchinfo import summary
 import os
 
-# 检查 MPS 是否可用
+# 检查 MPS 
 device = torch.device("mps")
 print(torch.backends.mps.is_available())
 ```
@@ -40,7 +40,7 @@ print(torch.backends.mps.is_available())
 - Show sample picture: show the first 20 sample pictures.
 
 ```python
-# 数据集下载路径设置为项目目录下的 data 文件夹
+# 下载路径
 data_path = './data'
 
 # load data
@@ -124,7 +124,7 @@ class LeNet(nn.Module):
         return x
 ```
 
-**加载并打印模型**
+**Load and Print**
 
 Use .to(device) to transfer model to GPU. Use summary(model) to print the parameters of the model.
 
@@ -217,7 +217,7 @@ Use two methods for training, with and without Batch Normalization and Dropout.
    
    print('Done')
 
-### 绘制结果
+### Result Presentation
 
 Plot Training/Test Accuracy plot and Training/Test Loss plot in the same line.
 
